@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.google.com/tools">
+<resources>
     <style name="Theme.MedCamp" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/green_neon</item>
         <item name="colorOnPrimary">@color/bg_dark_deep</item>
@@ -7,6 +7,5 @@
         <item name="android:windowBackground">@color/bg_dark_deep</item>
 
         <item name="android:statusBarColor">@color/bg_dark_deep</item>
-        <item name="android:windowLightStatusBar">false</item>
     </style>
 </resources>
