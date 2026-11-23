@@ -8,6 +8,14 @@
     android:gravity="center"
     android:background="@color/bg_dark_deep">
 
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/logo_medcamp"
+        android:contentDescription="Logo MedCamp"
+        android:layout_marginBottom="16dp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
