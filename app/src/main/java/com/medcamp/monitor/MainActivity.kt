@@ -216,7 +216,7 @@ class MainActivity : AppCompatActivity() {
 
         val imgWifi = findViewById<ImageView>(R.id.imgWifi)
         val imgLora = findViewById<ImageView>(R.id.imgLora)
-        val colorVerde = Color.parseColor("#2ECC71")
+        val colorVerde = Color.parseColor("#3AE078")
         val colorGris = Color.parseColor("#444444")
 
         imgWifi.setColorFilter(if (info.wifiCon == 1) colorVerde else colorGris)

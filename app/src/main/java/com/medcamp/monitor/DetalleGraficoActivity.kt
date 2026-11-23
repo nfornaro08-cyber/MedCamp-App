@@ -236,13 +236,13 @@ class DetalleGraficoActivity : AppCompatActivity() {
         }
 
         val dataSet = LineDataSet(entries, "Historial").apply {
-            color = Color.parseColor("#2ECC71")
+            color = Color.parseColor("#3AE078")
             setCircleColor(Color.WHITE)
             lineWidth = 2.5f
             valueTextColor = Color.WHITE
             setDrawFilled(true)
             fillAlpha = 35
-            fillColor = Color.parseColor("#2ECC71")
+            fillColor = Color.parseColor("#3AE078")
             mode = LineDataSet.Mode.CUBIC_BEZIER
             setDrawValues(false)
             setDrawCircles(entries.size < 80)

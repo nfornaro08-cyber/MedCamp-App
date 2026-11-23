@@ -80,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            app:cardBackgroundColor="#16191D"
+            app:cardBackgroundColor="#00241C"
             app:strokeColor="@color/border_subtle"
             app:strokeWidth="1dp"
             app:cardCornerRadius="12dp"
@@ -98,14 +98,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="?attr/selectableItemBackground"
-                    android:popupBackground="#16191D" />
+                    android:popupBackground="#00241C" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            app:cardBackgroundColor="#16191D"
+            app:cardBackgroundColor="#00241C"
             app:strokeColor="@color/border_subtle"
             app:strokeWidth="1dp"
             app:cardCornerRadius="14dp"

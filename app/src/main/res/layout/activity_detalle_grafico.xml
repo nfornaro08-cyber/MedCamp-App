@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0A0B0C"
+    android:background="#000E08"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="HISTORIAL"
-            android:textColor="#2ECC71"
+            android:textColor="#3AE078"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -40,7 +40,7 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="#121417"
+        app:cardBackgroundColor="#00241C"
         app:cardCornerRadius="12dp"
         app:strokeColor="#444444"
         app:strokeWidth="1dp">
@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ANÁLISIS DE DATOS"
-                android:textColor="#2ECC71"
+                android:textColor="#3AE078"
                 android:textSize="12sp"
                 android:layout_marginBottom="4dp"
                 android:textStyle="bold" />
