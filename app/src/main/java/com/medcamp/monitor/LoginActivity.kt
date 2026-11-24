@@ -58,10 +58,17 @@ class LoginActivity : AppCompatActivity() {
 
                         Toast.makeText(this@LoginActivity, "¡Bienvenido $nombreUsuario!", Toast.LENGTH_SHORT).show()
 
-                        // Ir a la pantalla principal
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        // Guardamos la sesión para que el Inicio y el panel puedan consultar la API
+                        getSharedPreferences("MEDCAMP_PREFS", MODE_PRIVATE).edit().apply {
+                            putString("token_jwt", tokenRecibido)
+                            putString("nombre_usuario", nombreUsuario)
+                            apply()
+                        }
 
-                        // 🔴 NUEVO: Le pasamos el token al MainActivity para que pueda consultar los sensores
+                        // El Inicio es la pantalla de entrada; el panel queda como sección secundaria
+                        val intent = Intent(this@LoginActivity, InicioActivity::class.java)
+
+                        // Le pasamos el token al panel para que pueda consultar los sensores
                         intent.putExtra("TOKEN_JWT", tokenRecibido)
 
                         startActivity(intent)

@@ -66,7 +66,9 @@ class MainActivity : AppCompatActivity() {
         // Inicializar el Spinner desde el XML modificado
         spinnerNodos = findViewById(R.id.spinnerNodos)
 
-        val tokenRaw = intent.getStringExtra("TOKEN_JWT") ?: ""
+        val tokenRaw = intent.getStringExtra("TOKEN_JWT")
+            ?: getSharedPreferences("MEDCAMP_PREFS", Context.MODE_PRIVATE)
+                .getString("token_jwt", "").orEmpty()
         tokenSesionFormateado = "Bearer $tokenRaw"
 
         val urlNgrok = "https://distract-overpass-commodity.ngrok-free.dev/"
@@ -132,6 +134,8 @@ class MainActivity : AppCompatActivity() {
                     if (!nodos.isNullOrEmpty()) {
                         listaDeNodos.addAll(nodos)
                         nodoSeleccionadoActual = listaDeNodos[0] // Por defecto el primero
+                        // Registrar los nodos del servidor para que el Inicio y el Excel los vean
+                        NodeRepository.registrarDesdeServidor(this@MainActivity, nodos)
                     } else {
                         listaDeNodos.add("Sin nodos activos")
                     }
@@ -169,6 +173,44 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("NODO_ID", nodoSeleccionadoActual ?: "")
             startActivity(intent)
         }
+
+        findViewById<android.widget.Button>(R.id.btnInicio).setOnClickListener {
+            startActivity(Intent(this, InicioActivity::class.java))
+            finish()
+        }
+
+        findViewById<android.widget.Button>(R.id.btnExportarExcel).setOnClickListener {
+            exportarExcel()
+        }
+    }
+
+    private fun exportarExcel() {
+        val nodos = NodeRepository.obtener(this)
+        val cache = getSharedPreferences("OFFLINE_CACHE", Context.MODE_PRIVATE)
+            .all.filterValues { it is String }.mapValues { it.value as String }
+        val historial = getSharedPreferences("HISTORIAL_PREFS", Context.MODE_PRIVATE)
+            .getString("lista_alertas", "") ?: ""
+        val alertas = historial.split("|").filter { it.isNotBlank() }
+        val servidor = NodeRepository.idsDelServidor(this).toSet()
+
+        val resumen = listOf(
+            "Total de nodos" to nodos.size.toString(),
+            "Nodos activos" to nodos.count {
+                it.id in servidor || cache.containsKey("ultima_lectura_${it.id}")
+            }.toString(),
+            "Alertas registradas" to alertas.size.toString(),
+            "Nodo seleccionado" to (nodoSeleccionadoActual ?: "Ninguno"),
+            "Fecha de exportación" to java.text.SimpleDateFormat(
+                "yyyy-MM-dd HH:mm:ss", java.util.Locale.getDefault()
+            ).format(java.util.Date())
+        )
+
+        val ruta = ExcelExporter.exportar(this, nodos, alertas, cache, resumen)
+        Toast.makeText(
+            this,
+            if (ruta != null) "Excel guardado en $ruta" else "No se pudo generar el Excel",
+            Toast.LENGTH_LONG
+        ).show()
     }
 
     private fun abrirGrafico(variable: String, titulo: String) {
