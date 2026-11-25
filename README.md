@@ -1,49 +1,37 @@
-# MedCamp-App
+# MedCamp App
 
-App Android (Kotlin) para el monitoreo agrícola de MedCamp.
+Aplicación Android (Kotlin) para el monitoreo de nodos agrícolas MedCamp.
 
-Recibe por HTTP los datos de un nodo de campo ESP32 que transmite por LoRa,
-muestra las lecturas en tiempo real, grafica el historial y genera alertas
-por VPD, heladas, calor extremo y suelo seco.
+## Funciones
 
-## Estructura (reorganizada)
+- **Resumen**: estado global de todos los nodos, con cantidad de nodos estables, con alertas y sin datos, porcentaje de nodos en rango y última lectura. Las tarjetas muestran cada nodo con problemas y el detalle de las variables fuera de rango (valor, umbral y exceso o déficit).
+- **Nodos**: panel con la telemetría del nodo seleccionado. El desplegable muestra el nombre de cada nodo y su descripción, y permite editar el comentario/identificación del nodo.
+- **Alertas**: historial local de alertas.
+- **Configuración**: umbrales de temperatura del aire, VPD, humedad de suelo y temperatura radicular.
+- **Exportación a Excel**: genera un archivo `.xlsx` real, sin librerías externas, con tres hojas:
+  - `Resumen`: estado actual de cada nodo, comentario, última lectura y variables.
+  - `Historial`: todas las lecturas registradas.
+  - `Umbrales`: límites configurados y batería mínima.
+- **Sin gráficos**: la app se concentra en el resumen, las alertas y los datos actuales.
 
-1. **Inicio** (`InicioActivity`): pantalla de entrada con resumen general —
-   total de nodos, nodos activos, alertas, nodos sin datos y últimos nodos
-   agregados. Desde acá se accede al resto de las secciones.
-2. **Panel Principal** (`MainActivity`): la telemetría en vivo de siempre,
-   ahora como sección secundaria del menú. Se accede desde *Inicio →
-   2 · Panel Principal* o con el botón *← Inicio* para volver.
-3. **Agregar nodo** (`AgregarNodoActivity`): alta manual con dos campos —
-   *Nombre del nodo* (obligatorio) y *Descripción* (opcional). Los comentarios
-   se editan tocando "Editar comentarios" en la lista de últimos nodos del Inicio.
-4. **Exportar a Excel** (`ExcelExporter`): botón que genera un `.xlsx` real con
-   tres hojas:
-   - `Nodos`: ID, nombre, descripción, comentarios, estado, fecha de creación,
-     última actualización y todas las variables de telemetría disponibles.
-   - `Alertas`: registro y detalle de cada alerta.
-   - `Resumen`: métricas generales y fecha de exportación.
+## Datos en Firebase
 
-   El archivo se guarda en `Descargas/MedCamp_Nodos_AAAAmmdd_HHMMss.xlsx`.
-   No requiere permisos ni librerías adicionales (se genera con `java.util.zip`).
+Firebase Realtime Database:
 
-Los nodos que informa el servidor se registran automáticamente en el resumen.
-Los datos de sesión y de nodos se guardan en `SharedPreferences`, así que el
-resumen y la exportación funcionan también sin conexión.
-
-## Módulos
-
-- `InicioActivity`: resumen y menú.
-- `LoginActivity`: inicio de sesión.
-- `MainActivity`: panel principal, nodos, clima y alertas.
-- `AgregarNodoActivity`: alta de nodos.
-- `DetalleGraficoActivity`: gráficos históricos.
-- `HistorialActivity`: historial local de alertas.
-- `NodeRepository` / `NodoInfo`: persistencia de metadata de nodos.
-- `ExcelExporter`: generación del `.xlsx`.
+- `usuarios/{uid}/lecturas/{nodo}/{timestamp}`: lecturas de los sensores.
+- `usuarios/{uid}/configuracion`: umbrales configurados.
+- `usuarios/{uid}/nodos/{nodo}/comentario`: descripción o comentario del nodo.
 
 ## Compilar
 
-Abrir la carpeta en Android Studio y ejecutar, o:
+Requisitos: Android Studio, JDK 11 o superior y Android SDK 34.
 
-    gradlew.bat assembleDebug
+```bash
+gradlew.bat assembleDebug
+```
+
+El APK de depuración queda en `app/build/outputs/apk/debug/app-debug.apk`.
+
+## Descargar APK
+
+[MedCamp.apk](https://raw.githubusercontent.com/nfornaro08-cyber/medcamp-apk/main/MedCamp.apk)

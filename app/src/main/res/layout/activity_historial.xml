@@ -1,46 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#121212"
-    android:padding="16dp">
+    android:background="@color/bg_dark_deep"
+    android:paddingHorizontal="20dp"
+    android:paddingTop="24dp"
+    android:paddingBottom="20dp">
 
-    <RelativeLayout
+    <!-- CABECERA -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:layout_marginBottom="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerInParent="true"
-            android:text="HISTORIAL DE ALERTAS"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HISTORIAL DE ALERTAS"
+                android:textColor="@color/text_pure_white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.04"
+                android:fontFamily="sans-serif-black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Registro de eventos del campamento"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnBorrarHistorial"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:backgroundTint="#E74C3C"
-            android:text="Limpiar"
-            android:textColor="#FFFFFF" />
-    </RelativeLayout>
+            android:layout_height="40dp"
+            android:backgroundTint="@color/danger_red_dim"
+            android:textColor="@color/danger_red"
+            android:text="LIMPIAR"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.06"
+            app:strokeColor="@color/danger_red"
+            app:strokeWidth="1dp"
+            app:cornerRadius="12dp" />
+    </LinearLayout>
 
-    <View
+    <!-- BANNER INFORMATIVO -->
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#00221A"
-        android:layout_marginBottom="16dp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        app:cardBackgroundColor="@color/bg_card_dark"
+        app:strokeColor="@color/border_subtle"
+        app:strokeWidth="1dp"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="0dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="12dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_history"
+                app:tint="@color/green_neon"
+                android:layout_marginEnd="10dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Avisos detectados según los umbrales configurados para cada nodo."
+                android:textColor="@color/text_muted_gray"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- LISTA DE ALERTAS DINÁMICA -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:fillViewport="true">
 
         <LinearLayout
             android:id="@+id/contenedorAlertas"

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MedCamp</string>
+    <string name="nav_resumen">Resumen</string>
+    <string name="nav_nodos">Nodos</string>
+    <string name="nav_alertas">Alertas</string>
+    <string name="nav_config">Configuración</string>
+</resources>

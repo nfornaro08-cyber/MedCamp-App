@@ -1,15 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="bg_dark_deep">#000E08</color>
-    <color name="bg_card_dark">#00241C</color>
-    <color name="green_neon">#3AE078</color>
-    <color name="border_subtle">#00221A</color>
-    <color name="text_pure_white">#FFFFFF</color>
-    <color name="text_muted_gray">#A0A0A0</color>
+    <!-- Backgrounds -->
+    <color name="bg_dark_deep">#06140D</color>
+    <color name="bg_card_dark">#0C2418</color>
+    <color name="bg_card_surface">#10301F</color>
+    <color name="bg_card_highlight">#16402A</color>
+    <color name="bg_input_field">#0B1E14</color>
 
-    <color name="alert_amber">#F1C40F</color>
-    <color name="temp_cyan">#00E5FF</color>
+    <!-- Emerald / Mint Accent Brand -->
+    <color name="green_neon">#34D399</color>
+    <color name="green_neon_light">#6EE7B7</color>
+    <color name="green_neon_dim">#123D2B</color>
+    <color name="green_neon_transparent">#1F34D399</color>
 
+    <!-- Metric Thematic Accents -->
+    <color name="temp_cyan">#22D3EE</color>
+    <color name="temp_cyan_soft">#67E8F9</color>
+    <color name="temp_cyan_dim">#123843</color>
+    <color name="hum_teal">#2DD4BF</color>
+    <color name="hum_teal_dim">#123934</color>
+    <color name="soil_amber">#FBBF24</color>
+    <color name="soil_amber_dim">#3B2E12</color>
+    <color name="pressure_indigo">#A5B4FC</color>
+    <color name="pressure_indigo_dim">#262A45</color>
+
+    <!-- Borders & Lines -->
+    <color name="border_subtle">#153826</color>
+    <color name="border_medium">#24573C</color>
+    <color name="border_accent">#34D399</color>
+
+    <!-- Typography -->
+    <color name="text_pure_white">#F6FFF9</color>
+    <color name="text_primary">#E6FFF0</color>
+    <color name="text_secondary">#A7C9B4</color>
+    <color name="text_muted_gray">#7FA78F</color>
+    <color name="text_dim">#5A7D67</color>
+
+    <!-- Status Alerts -->
+    <color name="alert_amber">#FBBF24</color>
+    <color name="danger_red">#EF4444</color>
+    <color name="danger_red_dim">#3A1618</color>
+
+    <!-- Basic -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

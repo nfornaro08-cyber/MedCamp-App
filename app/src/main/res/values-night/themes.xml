@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.MedCamp" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/green_neon</item>
+        <item name="colorOnPrimary">#06140D</item>
+        <item name="android:windowBackground">@color/bg_dark_deep</item>
+        <item name="android:statusBarColor">@color/bg_dark_deep</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

@@ -52,8 +52,8 @@ class HistorialActivity : AppCompatActivity() {
                 text = alerta
                 setTextColor(Color.WHITE)
                 textSize = 14f
-                setBackgroundResource(android.R.drawable.dialog_holo_dark_frame) // Un fondo sutil para separar
-                setPadding(24, 24, 24, 24)
+                setBackgroundResource(R.drawable.bg_alerta_item)
+                setPadding(32, 28, 32, 28)
                 val params = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT

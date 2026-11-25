@@ -1,74 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="32dp"
-    android:gravity="center"
+    android:fillViewport="true"
     android:background="@color/bg_dark_deep">
 
-    <ImageView
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:src="@drawable/logo_medcamp"
-        android:contentDescription="Logo MedCamp"
-        android:layout_marginBottom="16dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MEDCAMP"
-        android:textColor="@color/green_neon"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:letterSpacing="0.05"
-        android:layout_marginBottom="8dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Telemetría y Control de Lotes"
-        android:textColor="@color/text_muted_gray"
-        android:textSize="14sp"
-        android:layout_marginBottom="40dp"/>
-
-    <EditText
-        android:id="@+id/etEmail"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:hint="Email"
-        android:textColorHint="@color/text_muted_gray"
-        android:textColor="@color/text_pure_white"
-        android:background="@drawable/bg_tarjeta_premium"
-        android:paddingHorizontal="16dp"
-        android:inputType="textEmailAddress"
-        android:layout_marginBottom="16dp"
-        android:textSize="16sp"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="28dp">
 
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:hint="Contraseña"
-        android:textColorHint="@color/text_muted_gray"
-        android:textColor="@color/text_pure_white"
-        android:background="@drawable/bg_tarjeta_premium"
-        android:paddingHorizontal="16dp"
-        android:inputType="textPassword"
-        android:layout_marginBottom="32dp"
-        android:textSize="16sp"/>
+        <!-- LOGO ICON CON GLOW -->
+        <FrameLayout
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_circle_icon"
+            android:layout_marginBottom="20dp">
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="ENTRAR"
-        android:backgroundTint="@color/green_neon"
-        android:textColor="@color/bg_dark_deep"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:cornerRadius="14dp"/>
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:contentDescription="Logo MedCamp"
+                android:src="@drawable/logo_medcamp" />
+        </FrameLayout>
 
-</LinearLayout>
+        <!-- TITULO Y BADGE -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MEDCAMP"
+                android:textColor="@color/text_pure_white"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.06"
+                android:fontFamily="sans-serif-black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_badge_emerald"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:text="PRO"
+                android:textColor="@color/green_neon"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telemetría y Control del Campamento"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"
+            android:layout_marginBottom="36dp" />
+
+        <!-- CONTENEDOR TARJETA FORMULARIO -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="@color/bg_card_dark"
+            app:strokeColor="@color/border_subtle"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="22dp">
+
+                <!-- CAMPO EMAIL -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CORREO ELECTRÓNICO"
+                    android:textColor="@color/text_muted_gray"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_input_field"
+                    android:paddingHorizontal="14dp"
+                    android:layout_marginBottom="18dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_email"
+                        app:tint="@color/text_muted_gray"
+                        android:layout_marginEnd="10dp" />
+
+                    <EditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="ejemplo@medcamp.com"
+                        android:textColorHint="@color/text_dim"
+                        android:textColor="@color/text_pure_white"
+                        android:inputType="textEmailAddress"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <!-- CAMPO CONTRASEÑA -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CONTRASEÑA"
+                    android:textColor="@color/text_muted_gray"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_input_field"
+                    android:paddingHorizontal="14dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_lock"
+                        app:tint="@color/text_muted_gray"
+                        android:layout_marginEnd="10dp" />
+
+                    <EditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="••••••••"
+                        android:textColorHint="@color/text_dim"
+                        android:textColor="@color/text_pure_white"
+                        android:inputType="textPassword"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- BOTÓN ACCEDER -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="INGRESAR AL PANEL"
+            android:backgroundTint="@color/green_neon"
+            android:textColor="#06140D"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.06"
+            app:cornerRadius="16dp"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monitoreo IoT • Sensor LoRaWAN &amp; Wi-Fi"
+            android:textColor="@color/text_dim"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+</ScrollView>
